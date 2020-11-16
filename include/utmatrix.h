@@ -9,6 +9,7 @@
 //#define __TMATRIX_H__
 
 #include <iostream>
+#include<iomanip>
 using namespace std;
 const int MAX_VECTOR_SIZE = 100000000;
 const int MAX_MATRIX_SIZE = 10000;
@@ -51,11 +52,15 @@ public:
   }
   friend ostream& operator<<(ostream &out, const TVector &v)
   {
+      for (int i = 0; i < v.StartIndex; i++)
+      {
+          out << '0' << ' ';
+      }
       for (int i = 0; i < v.Size; i++)
       {
-          out << v.pVector[i];
-          std::cout << std::endl;
+          out << v.pVector[i] <<' ';
       }
+      out << std::endl;
     return out;
   }
 };
